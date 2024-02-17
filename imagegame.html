@@ -1,0 +1,158 @@
+<html>
+    <head>
+<style>
+    .grid-container
+    {
+        display: grid;
+        background-color: rgb(240, 56, 194);
+        grid-template-columns: auto auto auto;
+        width: 400px;
+        height: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .grid-item
+    {
+
+margin: 10px;
+padding: 2px;
+width : 100px;
+height : 100px;
+
+    }
+ button 
+{
+ font-size: 10px;
+width : 100px;
+height : 100px;
+background-color: rgb(48, 45, 226);  
+}
+
+button img {
+
+    width : 70px;
+    height : 70px;
+    visibility: hidden;
+
+}
+</style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item"><button onclick="changeimage('i1')"  id="1"><img style="z-index: 5;" id="i1" src="pizza.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i2')" id="2"><img style="z-index: 5;" id="i2" src="mango.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i3')" id="3"><img style="z-index: 5;" id="i3" src="mango.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i4')" id="4"><img style="z-index: 5;" id="i4" src="Home.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i5')" id="5"><img style="z-index: 5;" id="i5" src="lily.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i6')" id="6"><img style="z-index: 5;" id="i6" src="lily.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i7')" id="7"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i8')" id="8"><img style="z-index: 5;" id="i8" src="pizza.jpg"></button></div>
+            <div class="grid-item"><button onclick="changeimage('i9')" id="9"><img style="z-index: 5;" id="i9" src="Home.jpg"></button></div>
+         
+
+        </div>
+<script>
+    var image1 ,image2;
+    var imageclickevent=0;
+    var point=0;
+    function startgame()
+{
+
+    document.getElementById("i1").style.visibility="hidden";
+    document.getElementById("i2").style.visibility="hidden";
+    document.getElementById("i3").style.visibility="hidden";
+    document.getElementById("i4").style.visibility="hidden";
+    document.getElementById("i5").style.visibility="hidden";
+    document.getElementById("i6").style.visibility="hidden";
+    document.getElementById("i7").style.visibility="hidden";
+    document.getElementById("i8").style.visibility="hidden";
+    document.getElementById("i9").style.visibility="hidden";
+}
+    function viewimage()
+    {
+        // document.getElementById("demo").src = "a2.png";
+        document.getElementById("i1").style.visibility="visible";   
+        document.getElementById("i1").style.transform = "rotate(360deg)";
+        document.getElementById("i1").style.transition="all 2s"; 
+        
+        document.getElementById("i2").style.visibility="visible";  
+        document.getElementById("i2").style.transform = "rotate(360deg)";
+        document.getElementById("i2").style.transition="all 2s"; 
+
+        document.getElementById("i3").style.visibility="visible";  
+        document.getElementById("i3").style.transform = "rotate(360deg)";
+        document.getElementById("i3").style.transition="all 2s"; 
+
+        document.getElementById("i4").style.visibility="visible";  
+        document.getElementById("i4").style.transform = "rotate(360deg)";
+        document.getElementById("i4").style.transition="all 2s"; 
+
+        document.getElementById("i5").style.visibility="visible";  
+        document.getElementById("i5").style.transform = "rotate(360deg)";
+        document.getElementById("i5").style.transition="all 2s"; 
+
+        document.getElementById("i6").style.visibility="visible";  
+        document.getElementById("i6").style.transform = "rotate(360deg)";
+        document.getElementById("i6").style.transition="all 2s"; 
+
+       
+
+        document.getElementById("i8").style.visibility="visible";  
+        document.getElementById("i8").style.transform = "rotate(360deg)";
+        document.getElementById("i8").style.transition="all 2s"; 
+
+        document.getElementById("i9").style.visibility="visible";  
+        document.getElementById("i9").style.transform = "rotate(360deg)";
+        document.getElementById("i9").style.transition="all 2s"; 
+
+    }
+
+   function imagevisibility(b)
+    {
+        document.getElementById(b).style.visibility="visible";   
+    }
+    function changeimage(a)
+    {   
+        
+    if (imageclickevent ==0)
+    {imagevisibility(a);
+      
+        image1 = a;
+        imageclickevent=1;
+    }
+     else{
+        // document.getElementById(a).style.visibility="visible";
+        image2 = a;
+        checkmatch(image1,image2);
+        imageclickevent=0;
+
+     }   
+    
+    }
+
+function checkmatch()
+{
+    
+    if(image1 == "i1" & image2=="i8" | image1 == "i2" & image2=="i3" | image1 == "i4" & image2=="i9" | image1 == "i5" & image2=="i6")
+    {
+
+        point = point+1;
+        alert("correct match. you have scored "+point)
+    }
+    else{
+        alert("Incorrect match. you have scored "+point)
+    }
+    document.getElementById(image1).style.visibility="hidden";
+    document.getElementById(image2).style.visibility="hidden";
+    image1 ="a";
+    image2="a";
+
+}
+
+</script>
+
+
+<button name="viewimage" onclick="viewimage()">View Images</button>
+<button name="startgame" onclick="startgame()">Start Game</button>
+    </body>
+</html>
